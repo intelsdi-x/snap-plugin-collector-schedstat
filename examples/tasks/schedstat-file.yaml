@@ -1,0 +1,22 @@
+--- 
+max-failures: 10
+schedule: 
+  interval: 1s
+  type: simple
+version: 1
+workflow: 
+  collect: 
+    metrics: 
+      /intel/proc/schedstat/cpu/*/*/jiffiesRunning: {}
+      /intel/proc/schedstat/cpu/*/*/jiffiesWaiting: {}
+      /intel/proc/schedstat/cpu/*/*/schedYield: {}
+      /intel/proc/schedstat/cpu/*/*/scheduleCalled: {}
+      /intel/proc/schedstat/cpu/*/*/scheduleLeftIdle: {}
+      /intel/proc/schedstat/cpu/*/*/timeslices: {}
+      /intel/proc/schedstat/cpu/*/*/tryToWakeUp: {}
+      /intel/proc/schedstat/cpu/*/*/tryToWakeUpLocalCPU: {}
+    publish: 
+      - 
+        config: 
+          file: /tmp/schedstat_metrics
+        plugin_name: file

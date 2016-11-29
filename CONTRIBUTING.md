@@ -1,4 +1,4 @@
-# Snap plugin collector schedstat
+# snap plugin collector schedstat
 
 1. [Contributing Code](#contributing-code)
 2. [Contributing Examples](#contributing-examples)

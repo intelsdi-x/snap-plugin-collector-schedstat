@@ -43,8 +43,8 @@ const (
 	Version = 1
 
 	nsMetricPostion    = 3
-	nsCPUPosition      = 4
-	nsSocketPosition   = 5
+	nsCPUPosition      = 5
+	nsSocketPosition   = 4
 	nsSubMetricPostion = 6
 	//Schedstat structure
 	schedYield          = 0
@@ -104,7 +104,7 @@ func (SchedstatCollector) GetMetricTypes(cfg plugin.Config) ([]plugin.Metric, er
 	var metrics []plugin.Metric
 	ns := plugin.NewNamespace(Vendor, Class, Name)
 	for _, value := range schedstatStructure {
-		metrics = append(metrics, createMetric(ns.AddStaticElement("cpu").AddDynamicElement("cpu_id", "id of cpu").AddDynamicElement("socket_id", "id of socket").AddStaticElement(value)))
+		metrics = append(metrics, createMetric(ns.AddStaticElement("cpu").AddDynamicElement("socket_id", "id of socket").AddDynamicElement("cpu_id", "id of cpu").AddStaticElement(value)))
 	}
 	return metrics, nil
 }

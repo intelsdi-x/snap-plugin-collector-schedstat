@@ -69,7 +69,7 @@ func TestSchedStatPlugin(t *testing.T) {
 		mts := []plugin.Metric{}
 
 		for _, value := range schedstatStructure {
-			mts = append(mts, plugin.Metric{Namespace: plugin.NewNamespace(Vendor, Class, Name).AddStaticElement("cpu").AddDynamicElement("cpu_id", "id of cpu").AddDynamicElement("socket_id", "id of socket").AddStaticElement(value), Config: config})
+			mts = append(mts, plugin.Metric{Namespace: plugin.NewNamespace(Vendor, Class, Name).AddStaticElement("cpu").AddDynamicElement("socket_id", "id of socket").AddDynamicElement("cpu_id", "id of cpu").AddStaticElement(value), Config: config})
 		}
 		metrics, err := schedstatCol.CollectMetrics(mts)
 		So(err, ShouldBeNil)

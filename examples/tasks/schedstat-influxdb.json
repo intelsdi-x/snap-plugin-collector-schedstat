@@ -1,0 +1,38 @@
+{
+    "version": 1,
+    "schedule": {
+        "type": "simple",
+        "interval": "5s"
+    },
+    "workflow": {
+        "collect": {
+            "metrics": {
+                "/intel/proc/schedstat/cpu/*/*/jiffiesRunning": {},
+                "/intel/proc/schedstat/cpu/*/*/jiffiesWaiting": {},
+                "/intel/proc/schedstat/cpu/*/*/schedYield": {},
+                "/intel/proc/schedstat/cpu/*/*/scheduleCalled": {},
+                "/intel/proc/schedstat/cpu/*/*/scheduleLeftIdle": {},
+                "/intel/proc/schedstat/cpu/*/*/timeslices": {},
+                "/intel/proc/schedstat/cpu/*/*/tryToWakeUp": {},
+                "/intel/proc/schedstat/cpu/*/*/tryToWakeUpLocalCPU": {}
+            },
+            "config": {
+                "/intel/proc/schedstat": {
+                    "procPath": "/proc"
+                }
+            },
+            "publish": [
+		{
+                    "plugin_name": "influxdb",
+                    "config": {
+                        "host": "localhost",
+                        "port": 8086,
+                        "database": "test",
+                        "user": "admin",
+                        "password": "admin"
+                    }
+                }
+            ]
+        }
+    }
+}

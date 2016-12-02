@@ -59,6 +59,7 @@ This builds the plugin in `./build/`
 
 List of collected metrics is described in [METRICS.md](METRICS.md).
 
+***Plugin does not support collection of metrics for a single core or socket***
 ### Examples
 
 Example of running Snap schedstat collector and writing data to file.

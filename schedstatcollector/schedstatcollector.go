@@ -40,7 +40,8 @@ const (
 	//Class of the collector
 	Class = "proc"
 	//Version of the collector
-	Version = 1
+	Version         = 2
+	defaultProcPath = "/proc"
 
 	nsMetricPostion    = 3
 	nsCPUPosition      = 5
@@ -92,7 +93,7 @@ type CPU struct {
 func (SchedstatCollector) GetConfigPolicy() (plugin.ConfigPolicy, error) {
 	policy := plugin.NewConfigPolicy()
 	configKey := []string{Vendor, Class, Name}
-	policy.AddNewStringRule(configKey, "procPath", false, plugin.SetDefaultString(schedstatPath))
+	policy.AddNewStringRule(configKey, "procPath", false, plugin.SetDefaultString(defaultProcPath))
 
 	return *policy, nil
 

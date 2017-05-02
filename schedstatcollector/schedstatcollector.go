@@ -40,7 +40,7 @@ const (
 	//Class of the collector
 	Class = "proc"
 	//Version of the collector
-	Version         = 2
+	Version         = 3
 	defaultProcPath = "/proc"
 
 	nsMetricPostion    = 3
